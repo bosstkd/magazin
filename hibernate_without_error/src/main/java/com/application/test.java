@@ -34,13 +34,13 @@ public class test {
                 UserAbstractController uJPA = new UserAbstractController(emFactory);
 		   
                 Users u = new Users();
-                /*
-                u.setId(2);
-                u.setName("Test");
-                u.setUsername("Test Réussi");
-                */
                 
-                uJPA.remove(1);
+                u.setId(1);
+                u.setName("Amine");
+                u.setUsername("bossTKD");
+                uJPA.create(u);
+                
+                //uJPA.remove(1);
 				
 		System.out.println("Done");
 	}
