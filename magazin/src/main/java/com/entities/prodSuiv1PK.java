@@ -18,8 +18,6 @@ import javax.persistence.ManyToOne;
 public class prodSuiv1PK {
     
 
-    @Column(name = "comment")
-    private String comment;
 
     @ManyToOne
     @JoinColumn(name = "idpub")
