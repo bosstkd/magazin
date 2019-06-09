@@ -24,8 +24,9 @@ public abstract class AbstractFacade<T> {
     private Class<T> entityClass;
     private EntityManagerFactory emf = null;
 
-    public AbstractFacade(EntityManagerFactory emf) {
+    public AbstractFacade(EntityManagerFactory emf, Class<T> entityClass) {
         this.emf = emf;
+        this.entityClass = entityClass;
     }
         
     public EntityManager getEntityManager() {

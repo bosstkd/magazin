@@ -16,7 +16,7 @@ import javax.persistence.EntityManagerFactory;
 public class UserAbstractController extends AbstractFacade<Users>{
     
     public UserAbstractController(EntityManagerFactory emf) {
-        super(emf);
+        super(emf, Users.class);
     }
     
 }
