@@ -7,7 +7,8 @@ package com.application;
 
 
 
-import com.controllers.UsersJpaController;
+import com.controllers.UserAbstractController;
+// import com.controllers.UsersJpaController;
 import com.entities.Users;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -30,13 +31,13 @@ public class test {
     public static void main(String[] args) throws Exception {
 		
         
-                UsersJpaController uJPA = new UsersJpaController(emFactory);
+                UserAbstractController uJPA = new UserAbstractController(emFactory);
 		   
                 Users u = new Users();
                 
-                u.setId(1);
-                u.setName("Amine");
-                u.setUsername("bossTkd");
+                u.setId(2);
+                u.setName("Test");
+                u.setUsername("Test Réussi");
                 
                 
                 uJPA.create(u);
