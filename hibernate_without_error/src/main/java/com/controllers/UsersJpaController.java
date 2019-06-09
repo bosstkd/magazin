@@ -63,7 +63,7 @@ public class UsersJpaController implements Serializable {
             if (msg == null || msg.length() == 0) {
                 Integer id = users.getId();
                 if (findUsers(id) == null) {
-                    throw new NonexistentEntityException("The users with id " + id + " no longer exists.");
+                    throw new NonexistentEntityException("The entity with id " + id + " no longer exists.");
                 }
             }
             throw ex;
