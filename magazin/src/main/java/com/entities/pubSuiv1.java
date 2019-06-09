@@ -24,4 +24,37 @@ public class pubSuiv1 {
     
     @Column(name = "comment")
     private String comment;
+    
+    
+    @Column(name = "comment")
+    private Users idu;
+
+    public prodSuiv1PK getId() {
+        return id;
+    }
+
+    public void setId(prodSuiv1PK id) {
+        this.id = id;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public Users getIdu() {
+        return idu;
+    }
+
+    public void setIdu(Users idu) {
+        this.idu = idu;
+    }
+    
+    
+    
+    
+    
 }

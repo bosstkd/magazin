@@ -22,8 +22,15 @@ public class prodSuiv2PK {
     @JoinColumn(name = "idpub")
     private Publication idpub;
 
-    @ManyToOne
-    @JoinColumn(name = "idu")
-    private Users idu;
+    public Publication getIdpub() {
+        return idpub;
+    }
+
+    public void setIdpub(Publication idpub) {
+        this.idpub = idpub;
+    }
+
+    
+    
 
 }

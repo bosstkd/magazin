@@ -24,4 +24,34 @@ public class pubSuiv2 {
     
     @Column(name = "jaime")
     private Boolean jaime;
+    
+    @Column(name = "idu")
+    private Users idu;
+
+    public prodSuiv2PK getId() {
+        return id;
+    }
+
+    public void setId(prodSuiv2PK id) {
+        this.id = id;
+    }
+
+    public Boolean getJaime() {
+        return jaime;
+    }
+
+    public void setJaime(Boolean jaime) {
+        this.jaime = jaime;
+    }
+
+    public Users getIdu() {
+        return idu;
+    }
+
+    public void setIdu(Users idu) {
+        this.idu = idu;
+    }
+    
+    
+    
 }
