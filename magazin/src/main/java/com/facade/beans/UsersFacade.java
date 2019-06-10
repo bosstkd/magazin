@@ -6,7 +6,7 @@
 package com.facade.beans;
 
 import com.entities.Users;
-import com.facade.abstractModel.AbstractFacade;
+import com.facade.abstractModel.AbstractFacadeMag;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -17,14 +17,12 @@ import javax.persistence.Query;
  * @author Amine
  */
 @Stateless
-public class UsersFacade extends AbstractFacade<Users> {
+public class UsersFacade extends AbstractFacadeMag<Users> {
 
     @PersistenceContext(unitName = "comMagazinPU")
     private EntityManager em;
 
-   
-    
-    @Override
+
     protected EntityManager getEntityManager() {
         return em;
     }

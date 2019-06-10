@@ -9,9 +9,6 @@ import com.controllers.Util;
 import com.entities.Users;
 import com.facade.beans.UsersFacade;
 import javax.ejb.EJB;
-import javax.ejb.Init;
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
 /**

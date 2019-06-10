@@ -15,22 +15,25 @@ import javax.persistence.criteria.Root;
  *
  * @author Amine
  */
-public abstract class AbstractFacade<T> implements interfaceFacade<T> {
+public abstract class AbstractFacadeMag<T> implements interfaceFacadeMag<T> {
 
     private Class<T> entityClass;
 
-    public AbstractFacade(Class<T> entityClass) {
+    public AbstractFacadeMag(Class<T> entityClass) {
         this.entityClass = entityClass;
     }
 
     protected abstract EntityManager getEntityManager();
 
     public boolean create(T entity) {
+        
+        System.out.println(entity.getClass());
+        
         try {
-            System.out.println("he is there");
             getEntityManager().persist(entity);
             return true;
         } catch (Exception e) { 
+            e.printStackTrace();
             return false;
         }
         

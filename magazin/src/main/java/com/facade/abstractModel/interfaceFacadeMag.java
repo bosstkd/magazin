@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author Amine
  */
-public interface interfaceFacade<T> {
+public interface interfaceFacadeMag<T> {
    public boolean create(T entity);
    public void edit(T entity);
    public T find(Object id);

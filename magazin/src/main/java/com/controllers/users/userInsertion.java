@@ -36,19 +36,26 @@ public class userInsertion extends userAbstractController{
         u.setUsername(username);
         u.setMail(mail);
         u.setPsw(psw);
-        if(tel == null) tel = "";
+        
+        if(tel.equals("null") || tel == null || tel.equals("") ) tel = "Tel inconnu";
         u.setTel(tel);
-        if(adresse == null) adresse = "";
+       
+        if(adresse.equals("null") || adresse == null || adresse.equals("") ) adresse = "Adresse inconnu";
         u.setAdresse(adresse);
         
         codification COD = new codification();
         u.setIdu(COD.cd_prs(mail));
         
         try {
-            beanU.create(u);
-            msg.message(0, "Insertion effectuée avec succé.", "");
+            System.out.println(u.getIdu());
+            if(beanU.create(u)){
+                msg.message(0, "Insertion effectuée avec succé.", "");
+            }else{
+                msg.message(1, "Erreur d'insertion", "");
+            }
+            
         } catch (Exception e) {
-            msg.message(2, "Erreur d'insertion.", "Veillez vérifier votre connexion");
+            msg.message(2, "Erreur d'insertion.", "Veuillez vérifier votre connexion");
         }
         
     }

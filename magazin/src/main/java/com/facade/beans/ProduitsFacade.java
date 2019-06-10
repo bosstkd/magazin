@@ -6,8 +6,7 @@
 package com.facade.beans;
 
 import com.entities.Produits;
-import com.entities.Users;
-import com.facade.abstractModel.AbstractFacade;
+import com.facade.abstractModel.AbstractFacadeMag;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -17,7 +16,7 @@ import javax.persistence.PersistenceContext;
  * @author administrateur
  */
 @Stateless
-public class ProduitsFacade extends AbstractFacade<Produits>{
+public class ProduitsFacade extends AbstractFacadeMag<Produits>{
 
     
     @PersistenceContext(unitName = "comMagazinPU")

@@ -6,13 +6,13 @@
 package com.facade.beans;
 
 import com.entities.Commande;
-import com.facade.abstractModel.AbstractFacade;
+import com.facade.abstractModel.AbstractFacadeMag;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 @Stateless
-public class CommandeFacade extends AbstractFacade<Commande> {
+public class CommandeFacade extends AbstractFacadeMag<Commande> {
 
     @PersistenceContext(unitName = "comMagazinPU")
     private EntityManager em;
