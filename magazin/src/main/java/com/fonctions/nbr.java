@@ -1,4 +1,4 @@
-package com.facade.abstractModel.fonctions;
+package com.fonctions;
 
 import java.text.DecimalFormat;
 import java.util.Locale;

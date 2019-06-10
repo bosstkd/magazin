@@ -10,6 +10,7 @@ import com.facade.abstractModel.AbstractFacade;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -30,6 +31,14 @@ public class UsersFacade extends AbstractFacade<Users> {
 
     public UsersFacade() {
         super(Users.class);
+    }
+    
+    public Users findByMail(String mail){
+        String str = "Users.findByMail";
+        Query q = em.createQuery(str);
+        q.setParameter("mail", mail);
+        
+        return (Users) q.getSingleResult();
     }
     
 }

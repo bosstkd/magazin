@@ -7,7 +7,7 @@ package com.controllers;
 
 import com.entities.Users;
 import com.facade.abstractModel.abstractControllers;
-import com.facade.abstractModel.fonctions.codification;
+import com.fonctions.codification;
 import com.facade.beans.UsersFacade;
 import java.util.List;
 import javax.annotation.ManagedBean;
@@ -109,21 +109,30 @@ public class userController extends abstractControllers{
         
     }
 
-    
-    public void delete() {
 
-    }
-
-    
-    public void update() {
-
+    public void update(String ancMail) {
+        Users u = new Users();
+        u.setUsername(username);
+        u.setMail(mail);
+        u.setPsw(psw);
+        u.setTel(tel);
+        u.setAdresse(adresse);
+        
+        codification COD = new codification();
+        u.setIdu(COD.cd_prs(ancMail));
+        
+        try {
+            beanU.edit(u);
+            message(0, "Mise à jour effectuer avec succée.", "");
+        } catch (Exception e) {
+            message(2, "Erreur mise à jour.", e.getMessage());
+        }
     }
 
     
     public void onRowSelect(SelectEvent event) {
         
     }
-
 
     
     @EJB

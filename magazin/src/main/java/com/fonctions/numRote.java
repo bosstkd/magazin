@@ -1,4 +1,4 @@
-package com.facade.abstractModel.fonctions;
+package com.fonctions;
 
 import java.util.Date;
 import java.util.Vector;
