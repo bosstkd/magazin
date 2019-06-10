@@ -33,7 +33,7 @@ public class userConnexion extends userAbstractController{
             HttpSession hs = Util.getSession();
             hs.setAttribute("mail", mail);
             
-            return "/h_application/hotelAppFirst.xhtml";
+            return "/application/userApp.xhtml";
         }
 
     }
@@ -42,6 +42,6 @@ public class userConnexion extends userAbstractController{
             HttpSession hs = Util.getSession();
             hs.invalidate();
 
-            return "/hotelPanel/connexion/connexion.xhtml?faces-redirect=true";
+            return "/users/connexion.xhtml?faces-redirect=true";
       }
 }
