@@ -8,9 +8,9 @@ package com.controllers.users;
 import com.controllers.Util;
 import com.entities.Users;
 import com.facade.beans.UsersFacade;
-import javax.annotation.ManagedBean;
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
-import javax.ejb.Init;
+import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 /**
@@ -21,15 +21,23 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class userUpdate extends userAbstractController{
 
-
-    @EJB
+       
+    
+    
+  @EJB
     UsersFacade beanU;
     
-    @Init
+    @PostConstruct
     public void init() {
         beanU = new UsersFacade();
+         // System.out.println("on userUpdate : "+(String)Util.getSession().getAttribute("mail"));
+        String mailAdresse = (String)Util.getSession().getAttribute("mail");
+        Users u = beanU.findByMail(mailAdresse);
+        username = u.getUsername();
     }
 
+   
+    
 
     public void update(String ancMail) {
 

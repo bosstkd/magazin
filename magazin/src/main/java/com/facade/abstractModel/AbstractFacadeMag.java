@@ -26,9 +26,7 @@ public abstract class AbstractFacadeMag<T> implements interfaceFacadeMag<T> {
     protected abstract EntityManager getEntityManager();
 
     public boolean create(T entity) {
-        
-        System.out.println(entity.getClass());
-        
+   
         try {
             getEntityManager().persist(entity);
             return true;

@@ -9,16 +9,20 @@ import com.controllers.Util;
 import com.entities.Users;
 import com.facade.beans.UsersFacade;
 import javax.ejb.EJB;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author administrateur
  */
+@ManagedBean
+@SessionScoped
 public class userConnexion extends userAbstractController{
     
     
-    public boolean isUserExist(Users usr){
+    public boolean isUserExist(Users usr){       
         if(usr == null) return false;
         if(psw.equals(usr.getPsw())) return true;
         return false;
@@ -38,8 +42,9 @@ public class userConnexion extends userAbstractController{
             HttpSession hs = Util.getSession();
             hs.setAttribute("mail", mail);
             
-            return "/application/userApp.xhtml";
+            return "/users/application/userApp.xhtml";
         }
+       //  users/fragements/connect.xhtml» pour l’action
 
     }
     

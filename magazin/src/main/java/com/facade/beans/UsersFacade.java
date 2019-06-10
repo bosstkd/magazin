@@ -32,6 +32,7 @@ public class UsersFacade extends AbstractFacadeMag<Users> {
     }
     
     public Users findByMail(String mail){
+        System.out.println(mail);
         String str = "SELECT u FROM Users u WHERE u.mail = :mail";
         Query q = em.createQuery(str);
         q.setParameter("mail", mail);

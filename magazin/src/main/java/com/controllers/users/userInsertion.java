@@ -31,23 +31,37 @@ public class userInsertion extends userAbstractController{
         beanU = new UsersFacade();
     }
 
+
     public void insert() {
         Users u = new Users();
         u.setUsername(username);
         u.setMail(mail);
         u.setPsw(psw);
         
-        if(tel.equals("null") || tel == null || tel.equals("") ) tel = "Tel inconnu";
+        if(tel == null){
+            tel = "Tel inconnu";
+        }else if (tel.equals("")){
+            tel = "Tel inconnu";
+        }else if(tel.equals("null")){
+            tel = "Tel inconnu";
+        }
+        
         u.setTel(tel);
        
-        if(adresse.equals("null") || adresse == null || adresse.equals("") ) adresse = "Adresse inconnu";
+        if(adresse == null){
+            adresse = "Adresse inconnu";
+        }else if (adresse.equals("")){
+            adresse = "Adresse inconnu";
+        }else if(adresse.equals("null")){
+            adresse = "Adresse inconnu";
+        }
+        
         u.setAdresse(adresse);
         
         codification COD = new codification();
         u.setIdu(COD.cd_prs(mail));
         
         try {
-            System.out.println(u.getIdu());
             if(beanU.create(u)){
                 msg.message(0, "Insertion effectuée avec succé.", "");
             }else{

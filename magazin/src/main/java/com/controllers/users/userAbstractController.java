@@ -7,10 +7,7 @@ package com.controllers.users;
 
 import com.entities.Users;
 import com.facade.abstractModel.Message;
-import com.facade.beans.UsersFacade;
 import java.util.List;
-import javax.ejb.EJB;
-import javax.ejb.Init;
 
 /**
  *
@@ -81,6 +78,5 @@ public abstract class userAbstractController {
         this.usr = usr;
     }
     
-    
-
+   
 }

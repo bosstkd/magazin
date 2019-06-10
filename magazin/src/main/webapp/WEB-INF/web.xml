@@ -23,8 +23,8 @@
     <login-config>
         <auth-method>FORM</auth-method>
         <form-login-config>
-            <form-login-page>/magazin</form-login-page>
-            <form-error-page>/magazin</form-error-page>
+            <form-login-page>/magazin/index.xhtml</form-login-page>
+            <form-error-page>/magazin/index.xhtml</form-error-page>
         </form-login-config>
     </login-config>
     
@@ -35,7 +35,7 @@
     
     <error-page>
 	<exception-type>javax.faces.application.ViewExpiredException</exception-type>
-	<location>/magazin</location>
+	<location>/magazin/index.xhtml</location>
     </error-page>
             
     <session-config>
