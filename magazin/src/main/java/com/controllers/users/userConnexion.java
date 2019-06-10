@@ -7,6 +7,9 @@ package com.controllers.users;
 
 import com.controllers.Util;
 import com.entities.Users;
+import com.facade.beans.UsersFacade;
+import javax.ejb.EJB;
+import javax.ejb.Init;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
@@ -23,6 +26,11 @@ public class userConnexion extends userAbstractController{
         if(psw.equals(usr.getPsw())) return true;
         return false;
     }
+    
+    @EJB
+    UsersFacade beanU;
+    
+   
     
      public String doLogin(){
 

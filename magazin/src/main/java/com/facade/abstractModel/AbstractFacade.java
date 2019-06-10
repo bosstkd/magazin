@@ -27,6 +27,7 @@ public abstract class AbstractFacade<T> implements interfaceFacade<T> {
 
     public boolean create(T entity) {
         try {
+            System.out.println("he is there");
             getEntityManager().persist(entity);
             return true;
         } catch (Exception e) { 

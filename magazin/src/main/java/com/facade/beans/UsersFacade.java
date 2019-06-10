@@ -34,11 +34,15 @@ public class UsersFacade extends AbstractFacade<Users> {
     }
     
     public Users findByMail(String mail){
-        String str = "Users.findByMail";
+        String str = "SELECT u FROM Users u WHERE u.mail = :mail";
         Query q = em.createQuery(str);
         q.setParameter("mail", mail);
-        
-        return (Users) q.getSingleResult();
+        try {
+             return (Users) q.getSingleResult();
+        } catch (Exception e) {
+            return null;
+        }
+       
     }
     
 }

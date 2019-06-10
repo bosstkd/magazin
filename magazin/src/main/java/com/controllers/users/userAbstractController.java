@@ -81,12 +81,6 @@ public abstract class userAbstractController {
         this.usr = usr;
     }
     
-    @EJB
-    UsersFacade beanU;
     
-    @Init
-    public void init() {
-        beanU = new UsersFacade();
-    }
 
 }
