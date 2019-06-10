@@ -97,7 +97,7 @@ public class userInsertion extends userAbstractController{
         
         try {
             beanU.create(u);
-            msg.message(0, "Insertion effectuer avec succée.", "");
+            msg.message(0, "Insertion effectuée avec succé.", "");
         } catch (Exception e) {
             msg.message(2, "Erreur d'insertion.", "Veillez vérifier votre connexion");
         }

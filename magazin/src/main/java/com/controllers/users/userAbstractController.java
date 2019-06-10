@@ -18,14 +18,14 @@ import javax.ejb.Init;
  */
 public abstract class userAbstractController {
  
-  private String username;
-  private String mail;
-  private String tel;
-  private String psw;
-  private String adresse;
+  protected String username;
+  protected String mail;
+  protected String tel;
+  protected String psw;
+  protected String adresse;
   
-  public List<Users> listUser;
-  public Users usr;
+  protected List<Users> listUser;
+  protected Users usr;
   
   public Message msg = new Message();
 

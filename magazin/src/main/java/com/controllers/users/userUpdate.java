@@ -101,7 +101,7 @@ public class userUpdate extends userAbstractController{
         
         try {
             beanU.edit(u);
-            msg.message(0, "Mise à jour effectuer avec succée.", "");
+            msg.message(0, "Mise à jour effectuée avec succé.", "");
         } catch (Exception e) {
             msg.message(2, "Erreur mise à jour.", e.getMessage());
         }
