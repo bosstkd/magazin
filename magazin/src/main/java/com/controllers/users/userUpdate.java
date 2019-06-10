@@ -86,7 +86,7 @@ public class userUpdate extends userAbstractController{
 
     public void update(String ancMail) {
 
-        String idu = (String) beanU.findByMail((String) Util.getSession().getAttribute("mail")).getIdu();
+        String idu = beanU.findByMail((String) Util.getSession().getAttribute("mail")).getIdu();
 
         Users u = new Users();
         
