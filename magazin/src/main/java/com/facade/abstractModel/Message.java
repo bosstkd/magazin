@@ -13,23 +13,9 @@ import org.primefaces.event.SelectEvent;
  *
  * @author administrateur
  */
-public abstract class abstractControllers{
+public class Message{
 
-  public void insert(){
-      
-  }
-  
-  public void delete(){
-      
-  }
-  
-  public void update(){
-      
-  }
-    
-  public void onRowSelect(SelectEvent event){
-      
-  }
+
   
   public void message(int type, String Part1, String Part2) {
       FacesContext context = FacesContext.getCurrentInstance();
