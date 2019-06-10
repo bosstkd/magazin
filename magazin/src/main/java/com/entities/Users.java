@@ -35,6 +35,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Users.findAll", query = "SELECT u FROM Users u")
     , @NamedQuery(name = "Users.findByIdu", query = "SELECT u FROM Users u WHERE u.idu = :idu")
     , @NamedQuery(name = "Users.findByMail", query = "SELECT u FROM Users u WHERE u.mail = :mail")
+    , @NamedQuery(name = "Users.findByUsername", query = "SELECT u FROM Users u WHERE u.username = :username")
     , @NamedQuery(name = "Users.findByTel", query = "SELECT u FROM Users u WHERE u.tel = :tel")
     , @NamedQuery(name = "Users.findByPsw", query = "SELECT u FROM Users u WHERE u.psw = :psw")})
 public class Users implements Serializable {
@@ -51,6 +52,11 @@ public class Users implements Serializable {
     @Size(min = 1, max = 100)
     @Column(name = "mail", nullable = false, length = 100)
     private String mail;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 100)
+    @Column(name = "userName", nullable = false, length = 100)
+    private String username;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 30)
@@ -105,6 +111,14 @@ public class Users implements Serializable {
         this.mail = mail;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    
     public String getTel() {
         return tel;
     }
