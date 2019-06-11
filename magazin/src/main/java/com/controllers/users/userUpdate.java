@@ -29,9 +29,7 @@ public class userUpdate extends userAbstractController{
         return beanU.usrs();
     }
     
-    
-    
-    
+
     @EJB
     UsersFacade beanU;
     

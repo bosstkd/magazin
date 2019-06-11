@@ -48,7 +48,6 @@ public class userConnexion extends userAbstractController{
             
             return "/users/application/userApp.xhtml";
         }
-       //  users/fragements/connect.xhtml» pour l’action
 
     }
     
