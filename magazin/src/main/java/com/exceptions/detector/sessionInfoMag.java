@@ -36,7 +36,7 @@ public class sessionInfoMag {
  }
   
    public String returnToConnexion() {
-     System.out.println("session exist : "+existClt());
+    // System.out.println("session exist : "+existClt());
      boolean ss = existClt();
      if(!ss){
           System.out.println("etat 1");
