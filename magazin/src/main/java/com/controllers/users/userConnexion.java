@@ -8,8 +8,8 @@ package com.controllers.users;
 import com.controllers.Util;
 import com.entities.Users;
 import com.facade.beans.UsersFacade;
-import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import javax.ejb.Init;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.servlet.http.HttpSession;
@@ -32,7 +32,7 @@ public class userConnexion extends userAbstractController{
     @EJB
     UsersFacade beanU;
     
-   @PostConstruct
+   @Init
     public void init() {
         beanU = new UsersFacade();
     }
