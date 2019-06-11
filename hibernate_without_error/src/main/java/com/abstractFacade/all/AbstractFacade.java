@@ -89,15 +89,15 @@ public abstract class AbstractFacade<T> {
     }
     
     
-     public List<T> findUsersEntities() {
-        return findUsersEntities(true, -1, -1);
+     public List<T> findTEntities() {
+        return findTEntities(true, -1, -1);
     }
 
-    public List<T> findUsersEntities(int maxResults, int firstResult) {
-        return findUsersEntities(false, maxResults, firstResult);
+    public List<T> findTEntities(int maxResults, int firstResult) {
+        return findTEntities(false, maxResults, firstResult);
     }
 
-    private List<T> findUsersEntities(boolean all, int maxResults, int firstResult) {
+    private List<T> findTEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
@@ -113,7 +113,7 @@ public abstract class AbstractFacade<T> {
         }
     }
     
-     public T findUsers(Object id) {
+     public T find(Object id) {
         EntityManager em = getEntityManager();
         try {
             return em.find(entityClass, id);
