@@ -23,21 +23,23 @@ public class userUpdate extends userAbstractController{
 
        
     
+    private Users user;
+
+    public Users getUser() {
+        return beanU.usrs();
+    }
     
-  @EJB
+    
+    
+    
+    @EJB
     UsersFacade beanU;
     
     @PostConstruct
     public void init() {
         beanU = new UsersFacade();
          // System.out.println("on userUpdate : "+(String)Util.getSession().getAttribute("mail"));
-        String mailAdresse = (String)Util.getSession().getAttribute("mail");
-        Users u = beanU.findByMail(mailAdresse);
-        username = u.getUsername();
     }
-
-   
-    
 
     public void update(String ancMail) {
 
