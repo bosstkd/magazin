@@ -16,6 +16,8 @@
         <h1>Application here</h1>
         
         <p:outputLabel value="username: #{userUpdate.user.username}" />
+        <p:commandButton action="#{userConnexion.doLogout()}" value="Deconnecter" />
+        
         
         <p:panel style="width: 80%; position: absolute; left: 8% " >
             <ui:include src="/users/fragements/update.xhtml" />
