@@ -26,7 +26,6 @@ public class adresseMailValidator implements Validator {
     public void validate( FacesContext context, UIComponent component, Object value ) throws ValidatorException {
         /* Récupération de la valeur à traiter depuis le paramètre value */
         String email = (String) value;
-        System.out.println("mail: "+email);
         mailValidator mv = new mailValidator();
         if(mv.isValidEmailAddress(email)){
             try {

@@ -32,7 +32,6 @@
                 <p:outputLabel for="mail" value="Adresse mail:" />
                 <p:inputText id="mail" value="#{userUpdate.mail}" label="mail" required="true" style="width: 100%">
                         <f:ajax event="blur" render="msgMail" />
-                        <f:validator binding="#{adresseMailValidator}" />
                         <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
                         <f:validateLength minimum="6" />
                      </p:inputText>

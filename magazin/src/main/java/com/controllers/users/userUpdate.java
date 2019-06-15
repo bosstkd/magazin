@@ -8,6 +8,7 @@ package com.controllers.users;
 import com.controllers.Util;
 import com.entities.Users;
 import com.facade.beans.UsersFacade;
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.ejb.Init;
 import javax.faces.bean.ManagedBean;
@@ -46,30 +47,40 @@ public class userUpdate extends userAbstractController{
     @Init
     public void init() {
         beanU = new UsersFacade();
-        Users us = beanU.usrs();
+    }
+
+    @PostConstruct
+    public void psC(){
+         Users us = beanU.usrs();
         username = us.getUsername();
         mail = us.getMail();
-        
         if(us.getTel().equals("Tel inconnu"))
             tel = "";
         else
             tel = us.getTel();
         
         adresse = us.getAdresse();
-        
-        
-        
     }
-
+    
+    
     public void updateInfo() {
 
+        boolean mailExist = false;
+        
+       if( !beanU.usrs().getMail().equals(mail) ){
+           mailExist = (beanU.findByMail(mail) != null);
+       }
 
-        Users u = new Users();
+       
+       if(mailExist){
+           msg.message(1, "Adresse mail déja existante", "");
+       }else{
+            Users u = new Users();
         
         u.setIdu(beanU.usrs().getIdu());
         u.setUsername(username);
         u.setMail(mail);
-        u.setPsw(beanU.usrs().getIdu());
+        u.setPsw(beanU.usrs().getPsw());
         
         if(tel == null){
             tel = "Tel inconnu";
@@ -97,6 +108,8 @@ public class userUpdate extends userAbstractController{
         } catch (Exception e) {
             msg.message(2, "Erreur mise à jour.", e.getMessage());
         }
+       }
+       
     }
     
     public void passUpdate(){
