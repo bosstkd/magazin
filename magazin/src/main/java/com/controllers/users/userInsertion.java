@@ -8,6 +8,7 @@ package com.controllers.users;
 import com.entities.Users;
 import com.facade.beans.UsersFacade;
 import com.fonctions.codification;
+import java.util.Date;
 import javax.ejb.EJB;
 import javax.ejb.Init;
 import javax.faces.bean.ManagedBean;
@@ -59,7 +60,7 @@ public class userInsertion extends userAbstractController{
         u.setAdresse(adresse);
         
         codification COD = new codification();
-        u.setIdu(COD.cd_prs(mail));
+        u.setIdu(COD.cd_prs(mail+"_"+new Date()));
         
         try {
             if(beanU.create(u)){
