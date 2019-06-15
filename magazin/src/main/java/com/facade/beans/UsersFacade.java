@@ -39,10 +39,9 @@ public class UsersFacade extends AbstractFacadeMag<Users> {
         Query q = em.createQuery(str);
         q.setParameter("mail", mail);
         try {
-             return (Users) q.getSingleResult();
-        } catch (Exception e) {
-            return null;
-        }
+            if(q.getSingleResult() != null) return (Users) q.getSingleResult();
+        } catch (Exception e) { }
+         return null;
     }
     
     

@@ -6,9 +6,82 @@
       xmlns:p="http://primefaces.org/ui">
    <h:head>
     <title>mise a jour</title>
+    <f:metadata>
+                <f:viewAction action="#{sessionInfoMag.returnToConnexion}" />
+    </f:metadata>
    </h:head>
     
     <h:body>
+        
+        <h:panelGrid columns="2" cellpadding="30" >
+            
+        
+          <h:form >
+            <p:growl id="message" />
+            <h:panelGrid columns="3"  cellspacing="3" style="width: 100%; text-align: right; font-size:1vw;">
+                
+                <p:outputLabel for="username" value="nom utilisateur:" />
+                    
+                <p:inputText id="username" value="#{userUpdate.username}" required="true" label="Raison_Social" style="width: 100%">
+                         <f:validateLength minimum="2" />
+                         <f:ajax event="blur" render="msgUsername" />
+                    </p:inputText>
+                    <p:message for="username" id="msgUsername" display="icon" />
+                
+                
+                <p:outputLabel for="mail" value="Adresse mail:" />
+                <p:inputText id="mail" value="#{userUpdate.mail}" label="mail" required="true" style="width: 100%">
+                        <f:ajax event="blur" render="msgMail" />
+                        <f:validator binding="#{adresseMailValidator}" />
+                        <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+                        <f:validateLength minimum="6" />
+                     </p:inputText>
+                    
+                     <p:message for="mail" id="msgMail" display="icon" />
+                     
+                     
+                <p:outputLabel for="tel" value="Tel:" />
+                <p:inputMask id="tel" value="#{userUpdate.tel}" mask="(9999) 99-99-99" required="false" style="width: 100%"/>
+                <p:message for="tel" id="msgTel" display="icon" />    
+
+                <p:outputLabel for="adr" value="Adresse:" />
+                <p:inputTextarea id="adr" value="#{userUpdate.adresse}" required="false" style="width: 100%"/>
+                <p:message for="adr" id="msgAdr" display="icon" />  
+
+           </h:panelGrid>
+            
+            <p:commandButton value="Modifier" action="#{userUpdate.updateInfo()}" update="message" style="width: 100%; font-size:1vw;"/>
+            
+        </h:form>
+        
+        <h:form>
+            <p:growl id="msg" />
+            <h:panelGrid columns="3" cellspacing="19" style="width: 100%; text-align: right; font-size:1vw;">
+                
+                <p:outputLabel for="apsw" value="Ancien mot de passe:" /> 
+                <p:password  id="apsw" placeholder="mot de passe" value="#{userUpdate.psw}" required="true" style="width: 100%" >
+                             <f:validateLength minimum="8" />
+                </p:password>
+                <p:message for="apsw" id="amsgPsw"  display="icon" />
+                
+                <p:outputLabel for="psw" value="Nouveau mot de passe" /> 
+                <p:password  id="psw" match="copsw" label="Mot de passe" placeholder="mot de passe" value="#{userUpdate.npsw}" feedback="true" inline="true" required="true" style="width: 100%" >
+                             <f:validateLength minimum="8" />
+                </p:password>
+                <p:message for="psw" id="msgPsw"  display="icon" />
+                
+                <p:outputLabel for="copsw" value="Confirmer le mot de passe" /> 
+                <p:password id="copsw" value="#{userUpdate.npsw}" label="Confirmation mot de passe" placeholder="confirmation mot de passe" required="true" style="width: 100%" />
+                <p:message for="copsw" id="msgCopsw" display="icon" /> 
+
+                
+            </h:panelGrid>
+                 
+            <p:commandButton value="Changer le mot de passe" action="#{userUpdate.passUpdate()}" update="msg" style="width: 100%; font-size:1vw;"/>
+
+        </h:form>
+            
+            </h:panelGrid>
         
     </h:body>
      
