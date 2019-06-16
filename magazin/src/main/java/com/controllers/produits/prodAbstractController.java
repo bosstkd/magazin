@@ -7,11 +7,24 @@ package com.controllers.produits;
 
 import com.entities.Produits;
 import com.facade.abstractModel.Message;
+import com.fonctions.codification;
 import java.util.Date;
 import java.util.List;
+import org.primefaces.model.UploadedFile;
 
 
 public abstract class prodAbstractController {
+    
+    
+    protected UploadedFile file;
+ 
+    public UploadedFile getFile() {
+        return file;
+    }
+ 
+    public void setFile(UploadedFile file) {
+        this.file = file;
+    }
     
     protected String idProd;
     protected String idu;
@@ -39,7 +52,7 @@ public abstract class prodAbstractController {
     
     
      public Message msg = new Message();
-    
+     codification COD = new codification();
     
     public String getIdProd() {
         return idProd;

@@ -195,9 +195,10 @@ public boolean imageListResizer(int XDimention, int YDimention, String outFormat
 //----------------------------------------------------------------------
 
 // ne fonctionne que pour JSF {réception d'image recherche du dossier resources ou target(pour maven) creation d'un sous répertoire et changement et sauvegarde d'image}.
-public void primeFacesImageReceiver(int XDimention, int YDimention, UploadedFile file, String imageDirectory, String resourcePath, String imageName) throws IOException{
+public boolean primeFacesImageReceiver(int XDimention, int YDimention, UploadedFile file, String imageDirectory, String resourcePath, String imageName){
         
-           InputStream InPtStream = file.getInputstream(); 
+    try {
+        InputStream InPtStream = file.getInputstream(); 
            String relativeWebPath = getResourcePathJsf(resourcePath);
           
            relativeWebPath = relativeWebPath+"\\"+imageDirectory;
@@ -234,6 +235,12 @@ public void primeFacesImageReceiver(int XDimention, int YDimention, UploadedFile
             File fs = new File(imageURL);
             
             imageResizer(XDimention, YDimention, IMAGE_TYPE_JPEG, fs, imageName);
+            return true;
+    } catch (IOException e) {
+        e.printStackTrace();
+        return false;
+    }
+           
 }
 
 // ne fonctionne que pour JSF {réception d'image recherche du dossier resources ou target(pour maven) creation d'un sous répertoire et changement et sauvegarde d'image}.

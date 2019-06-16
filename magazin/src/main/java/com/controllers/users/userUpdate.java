@@ -5,21 +5,20 @@
  */
 package com.controllers.users;
 
-import com.controllers.Util;
 import com.entities.Users;
 import com.facade.beans.UsersFacade;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.ejb.Init;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 
 /**
  *
  * @author administrateur
  */
 @ManagedBean
-@SessionScoped
+@ViewScoped
 public class userUpdate extends userAbstractController{
 
        
